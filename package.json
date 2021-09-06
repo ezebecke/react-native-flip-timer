@@ -1,13 +1,10 @@
 {
-  "name": "@ezebecke/react-native-flip-timer",
+  "name": "ezebecke-react-native-flip-timer",
   "version": "0.0.1",
   "description": "A Flip timer implementation in React Native",
   "main": "dist/react-native-flip-timer.cjs.js",
   "jsnext:main": "dist/react-native-flip-timer.esm.js",
   "module": "dist/react-native-flip-timer.esm.js",
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/@ezebecke"
-  },
   "scripts": {
     "prebuild": "rimraf dist",
     "prepublishOnly": "run-s build",
@@ -33,7 +30,7 @@
   "author": {
     "name": "Eze",
     "email": "ezequiel.becke@gmail.com",
-    "url": "ezequiel-becke.io"
+    "url": "ezebecke.github.io"
   },
   "license": "MIT",
   "repository": {
