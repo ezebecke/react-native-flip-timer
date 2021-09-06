@@ -1,10 +1,13 @@
 {
-  "name": "react-native-flip-timer",
-  "version": "0.0.5",
+  "name": "@ezebecke/react-native-flip-timer",
+  "version": "0.0.1",
   "description": "A Flip timer implementation in React Native",
   "main": "dist/react-native-flip-timer.cjs.js",
   "jsnext:main": "dist/react-native-flip-timer.esm.js",
   "module": "dist/react-native-flip-timer.esm.js",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/@ezebecke"
+  },
   "scripts": {
     "prebuild": "rimraf dist",
     "prepublishOnly": "run-s build",
@@ -28,19 +31,19 @@
     "react-native-flip-timer"
   ],
   "author": {
-    "name": "Pritish Vaidya",
-    "email": "pritishvaidya94@gmail.com",
-    "url": "pritishvaidya.com"
+    "name": "Eze",
+    "email": "ezequiel.becke@gmail.com",
+    "url": "ezequiel-becke.io"
   },
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/pritishvaidya/react-native-flip-timer.git"
+    "url": "git+https://github.com/ezebecke/react-native-flip-timer.git"
   },
   "bugs": {
-    "url": "https://github.com/pritishvaidya/react-native-flip-timer/issues"
+    "url": "https://github.com/ezebecke/react-native-flip-timer/issues"
   },
-  "homepage": "https://github.com/pritishvaidya/react-native-flip-timer#readme",
+  "homepage": "https://github.com/ezebecke/react-native-flip-timer#readme",
   "devDependencies": {
     "@babel/plugin-proposal-class-properties": "^7.3.0",
     "@babel/preset-env": "^7.3.0",
