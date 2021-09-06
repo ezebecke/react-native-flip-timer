@@ -8,7 +8,14 @@ import NumberCard from './number-card';
 import style from '../style';
 
 function FlipNumber({
-  number, unit, size, perspective, numberWrapperStyle, cardStyle, flipCardStyle, numberStyle,
+  number,
+  unit,
+  size,
+  perspective,
+  numberWrapperStyle,
+  cardStyle,
+  flipCardStyle,
+  numberStyle,
 }) {
   number = parseInt(number);
   let previousNumber = number - 1;
@@ -54,11 +61,8 @@ FlipNumber.defaultProps = {
 };
 
 FlipNumber.propTypes = {
-  number: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.number,
-  ]).isRequired,
-  unit: PropTypes.oneOf(['hours', 'minutes', 'seconds']),
+  number: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+  unit: PropTypes.oneOf(['days', 'hours', 'minutes', 'seconds']),
   size: PropTypes.number,
   perspective: PropTypes.number,
   numberWrapperStyle: PropTypes.object,
