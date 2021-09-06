@@ -42,11 +42,11 @@ class NumberCard extends React.Component {
 
   setFrontRef = (ref) => {
     this.frontRef = ref;
-  }
+  };
 
   setBackRef = (ref) => {
     this.backRef = ref;
-  }
+  };
 
   animateTick = () => {
     this.rotateFront.setValue(0);
@@ -63,7 +63,7 @@ class NumberCard extends React.Component {
         useNativeDriver: true,
       }),
     ]).start();
-  }
+  };
 
   transformRef = (ref, deg, y) => {
     const { perspective } = this.props;
@@ -75,16 +75,25 @@ class NumberCard extends React.Component {
     if (ref) {
       ref.setNativeProps({ style: { transform: [{ matrix }] } });
     }
-  }
+  };
 
   render() {
     const {
-      number, previousNumber, size, numberWrapperStyle, cardStyle, flipCardStyle, numberStyle,
+      number,
+      previousNumber,
+      size,
+      numberWrapperStyle,
+      cardStyle,
+      flipCardStyle,
+      numberStyle,
     } = this.props;
     return (
-      <View style={[style.numberWrapper,
-        { width: size * 0.8, height: size * 1.2, borderRadius: size / 10 },
-        numberWrapperStyle]}
+      <View
+        style={[
+          style.numberWrapper,
+          { width: size * 0.8, height: size * 1.2, borderRadius: size / 10 },
+          numberWrapperStyle,
+        ]}
       >
         <Card
           type="upper"
@@ -122,19 +131,13 @@ class NumberCard extends React.Component {
 }
 
 NumberCard.defaultProps = {
-  size: width / 6,
+  size: width / 10,
   perspective: 250,
 };
 
 NumberCard.propTypes = {
-  number: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.number,
-  ]).isRequired,
-  previousNumber: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.number,
-  ]),
+  number: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+  previousNumber: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   perspective: PropTypes.number,
   size: PropTypes.number,
   numberWrapperStyle: PropTypes.object,
