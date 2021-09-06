@@ -16,12 +16,7 @@ function rotateXMatrix(matrix, deg) {
   const rad = (Math.PI / 180) * deg;
   const cos = Math.cos(rad);
   const sin = Math.sin(rad);
-  const rotate = [
-    1, 0, 0, 0,
-    0, cos, -sin, 0,
-    0, sin, cos, 0,
-    0, 0, 0, 1,
-  ];
+  const rotate = [1, 0, 0, 0, 0, cos, -sin, 0, 0, sin, cos, 0, 0, 0, 0, 1];
   multiplyInto(matrix, matrix, rotate);
 }
 
@@ -51,22 +46,38 @@ function untranslateMatrix(matrix, origin) {
   multiplyInto(matrix, matrix, unTranslate);
 }
 
-function formatTime(hours, minutes, seconds) {
-  if (hours < 10) { hours = `0${hours}`; }
-  if (minutes < 10) { minutes = `0${minutes}`; }
-  if (seconds < 10) { seconds = `0${seconds}`; }
-  return { hours, minutes, seconds };
+function formatTime(days, hours, minutes, seconds) {
+  if (days < 10) {
+    days = `0${days}`;
+  }
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+  if (seconds < 10) {
+    seconds = `0${seconds}`;
+  }
+  return {
+    days,
+    hours,
+    minutes,
+    seconds,
+  };
 }
 
 function formatNumberToTime(number) {
   const secNum = parseInt(number);
+  const days = Math.floor(secNum / 86400);
   const hours = Math.floor(secNum / 3600);
-  const minutes = Math.floor((secNum - (hours * 3600)) / 60);
-  const seconds = secNum - (hours * 3600) - (minutes * 60);
-  return formatTime(hours, minutes, seconds);
+  const minutes = Math.floor((secNum - hours * 3600) / 60);
+  const seconds = secNum - hours * 3600 - minutes * 60;
+  return formatTime(days, hours, minutes, seconds);
 }
 
-function addTime(hours, minutes, seconds) {
+function addTime(days, hours, minutes, seconds) {
+  days = parseInt(days);
   hours = parseInt(hours);
   minutes = parseInt(minutes);
   seconds = parseInt(seconds);
@@ -83,9 +94,15 @@ function addTime(hours, minutes, seconds) {
     hours += h;
     minutes -= 60 * h;
   }
-  return formatTime(hours, minutes, seconds);
-}
 
+  if (hours >= 24) {
+    const d = (hours / 24) << 0;
+    days += d;
+    hours -= 60 * d;
+  }
+
+  return formatTime(days, hours, minutes, seconds);
+}
 
 export default {
   createIdentityMatrix,
