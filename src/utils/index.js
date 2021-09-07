@@ -104,6 +104,10 @@ function addTime(days, hours, minutes, seconds) {
   return formatTime(days, hours, minutes, seconds);
 }
 
+function resetTime() {
+  return formatTime(0, 0, 0, 0);
+}
+
 export default {
   createIdentityMatrix,
   multiplyInto,
@@ -113,4 +117,5 @@ export default {
   untranslateMatrix,
   formatNumberToTime,
   addTime,
+  resetTime,
 };

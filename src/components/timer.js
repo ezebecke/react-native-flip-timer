@@ -68,6 +68,11 @@ class Timer extends React.Component {
     this.setState(prevState => ({ ...prevState, ...newState }));
   };
 
+  resetTime = () => {
+    const newState = TransformUtils.resetTime(0, 0, 0, 0);
+    this.setState(prevState => ({ ...prevState, ...newState }));
+  };
+
   render() {
     const { wrapperStyle, flipNumberProps } = this.props;
     const {
