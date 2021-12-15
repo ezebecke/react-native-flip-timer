@@ -70,9 +70,9 @@ function formatTime(days, hours, minutes, seconds) {
 function formatNumberToTime(number) {
   const secNum = parseInt(number);
   const days = Math.floor(secNum / 86400);
-  const hours = Math.floor(secNum / 3600);
-  const minutes = Math.floor((secNum - hours * 3600) / 60);
-  const seconds = secNum - hours * 3600 - minutes * 60;
+  const hours = Math.floor((secNum - days * 86400) / 3600);
+  const minutes = Math.floor((secNum - days * 86400 - hours * 3600) / 60);
+  const seconds = secNum - days * 86400 - hours * 3600 - minutes * 60;
   return formatTime(days, hours, minutes, seconds);
 }
 
